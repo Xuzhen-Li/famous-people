@@ -1,0 +1,16 @@
+{
+  "file": "examples/BG-001-mendel-v21/draft.md",
+  "profile": "wechat",
+  "cn_chars": 4573,
+  "mech_pass": true,
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "汉字约 4573"
+  ],
+  "cited": 18,
+  "bib": 18,
+  "verdict": "MECH_PASS",
+  "human_required": true,
+  "message": "机械门禁通过 — 仍须人工事实抽检"
+}
