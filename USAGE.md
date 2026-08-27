@@ -2,10 +2,10 @@
 
 ## English
 
-Install this repository as the single `famous-bio` skill. In a generic writing workspace, request one person and one concrete, checkable biological question.
+Install this repository as the single `famous-people` skill. In a generic writing workspace, request one person and one concrete, checkable question.
 
 ```text
-/famous-bio Write one 生物学名人系列 article about [person], centered on [question].
+/famous-people Write one 生物学名人系列 article about [person], centered on [question]. Not biologists only.
 ```
 
 The agent must:
@@ -22,13 +22,13 @@ Optional integrations listed in [references/companion-skills.md](references/comp
 Example commands from the writing-workspace root:
 
 ```bash
-python3 ~/.cursor/skills/famous-bio/scripts/qc_gate.py \
+python3 ~/.cursor/skills/famous-people/scripts/qc_gate.py \
   --profile wechat --file drafts/BG-XXX_SLUG_vN.md
-python3 ~/.cursor/skills/famous-bio/scripts/verify_dois.py \
+python3 ~/.cursor/skills/famous-people/scripts/verify_dois.py \
   --file drafts/BG-XXX_SLUG_vN.md --out runs/BG-XXX_vN/S7-verify-log.txt
-python3 ~/.cursor/skills/famous-bio/scripts/export_ship.py \
+python3 ~/.cursor/skills/famous-people/scripts/export_ship.py \
   --in drafts/BG-XXX_SLUG_vN.md --out dist/BG-XXX_SLUG_vN.md
-python3 ~/.cursor/skills/famous-bio/scripts/publish_lint.py \
+python3 ~/.cursor/skills/famous-people/scripts/publish_lint.py \
   --file dist/BG-XXX_SLUG_vN.md
 ```
 
@@ -36,7 +36,7 @@ Stop at a reader-clean local file. No WeChat posting occurs unless the user expl
 
 ## 中文
 
-把本仓库作为唯一的 `famous-bio` 技能安装。在普通写作工作区中，一次指定一位人物和一个可核对的生物学问题。
+把本仓库作为唯一的 `famous-people` 技能安装。在普通写作工作区中，一次指定一位人物和一个可核对的生物学问题。
 
 Agent 使用本包模板建立 S1 证据和 S2 主张边界，再用英文讲解排列读者问题，随后关闭英文措辞，只从已核证据和本包写作参考起草。工作稿、运行记录、图片、核查记录和读者稿分别放入 `drafts/`、`runs/`、`figures/`、`qc/`、`dist/`。外部集成只用于可选加速，不是运行依赖。
 
