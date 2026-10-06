@@ -1,46 +1,33 @@
 ---
 name: famous-bio
-description: Write one evidence-grounded Chinese 生物学名人系列 biography about a scientist and a concrete biological question, with research records, figures, QC, and a reader-clean export.
+description: 写「生物学名人系列」公众号长文：一位生物学家的科学人生和一两件核心工作，查证、配现成的图，按真人科普杂志的写法成文。Triggers: 写下一篇名人系列 / 生物学名人系列 / /famous-bio.
 ---
 
-# famous-bio
+# 生物学名人系列
 
-This is the package's only agent entry. It writes one biography at a time into a generic user workspace.
+## 这是什么
 
-## Read before drafting
+一篇讲一位生物学家的科学人生：他从哪里来，进入这一行时这门学问是什么样子，他做成的一两件核心工作，身边的同事和学生，这些工作当时怎样被接受、后来怎样发展，他的晚年和身后的评价。核心工作要讲到外行能复述其中推理的深度；人生的其余部分也要有具体的场景和事情，不能一句带过。像《返朴》《知识分子》里科学家写的人物文章。
 
-1. [references/voice-contract.md](references/voice-contract.md)
-2. [references/pipeline.md](references/pipeline.md)
-3. [references/companion-skills.md](references/companion-skills.md) for optional accelerators
-4. [references/fail-table.md](references/fail-table.md)
-5. [references/teaching-walk.md](references/teaching-walk.md)
-6. [references/english-models.md](references/english-models.md)
-7. [references/continuity.md](references/continuity.md)
-8. [references/write-body.md](references/write-body.md)
-9. [references/reader-voice.md](references/reader-voice.md)
-10. [references/figure-policy.md](references/figure-policy.md)
-11. [references/quality-bar.md](references/quality-bar.md)
+## 这篇文章不是聊天回复
 
-## Stage contract
+你收到的对话规则是为聊天回复写的：简洁、先给结论、只留必要证据、避免「不是……而是」式对比、多用要点列表、每条结论标来源或 [待确认]、双语摘要。这些都不适用于正文。正文是给人慢慢读的长文：写成完整的段落，因果讲完整，保留连接词和过渡，人物和背景交代清楚。不确定的事实留在 facts.md，不进正文。
 
-1. Research primary and reliable secondary sources; write a complete S1 evidence record with the bundled template and identify gaps.
-2. Use the bundled S2 templates to produce 3–5 claims, evidence, boundaries, and an outline. S2 does not write the WeChat body.
-3. Fetch 1–3 English explainers. Save only `reader question → evidence → next question` in S0. Facts remain tied to primary `[n]` sources.
-4. Draft Chinese with the bundled teaching, continuity, body, and reader-voice references. English wording, syntax, rhythm, and transitions are not drafting material.
-5. Revise with the mandatory Chinese strategy in `references/write-body.md`.
-6. Add a verified portrait, a legally usable primary table/plate or numbered paper figure, and useful explanatory images. Generated mechanism diagrams are optional.
-7. Run `qc_gate.py`, `verify_dois.py`, `export_ship.py`, and `publish_lint.py` in that order.
+## 四步
 
-Optional integrations may accelerate research, outlining, Chinese revision, or illustration. They are not required. If one is used, read its own `SKILL.md`; otherwise execute the bundled fallback workflow without simulating an unavailable tool.
+1. **查证** → `work/<slug>/facts.md`，照 `templates/facts.md`，读 `references/research.md`。中英文都要搜；中国人物至少找到三种中文一手材料。
+2. **写和配图** → `work/<slug>/draft.md`，读 `references/style.md`，一次写完整篇。只用 facts.md 里有出处的事实。按 `references/figures.md` 找图、下载到 `work/<slug>/figures/`、登记到 `figures.md`，插进正文。
+3. **自改**：从头朗读一遍，先写 `work/<slug>/revise.md`：对 style.md 末尾每个「改稿问题」，摘出原稿里有问题的原句，写出改法；确实没有才写「无」。然后按它改出 `work/<slug>/article.md`。该删的只有：转述资料的句子、撇清和提醒读者的句子、年表式罗列、和推理无关又没解释的数字。不要为了短而删背景、人物、同事、争论和后续；只用一句带过的重要事情，要讲开。改完应当比初稿更从容、更完整。
+4. **检查**：`python3 scripts/check_article.py work/<slug>/article.md`。有 ERROR 就改；WARN 读一下判断。
 
-## Output
+## 篇幅
 
-```text
-drafts/BG-XXX_SLUG_vN.md
-runs/BG-XXX_vN/
-figures/
-qc/YYYYMMDD_BG-XXX_vN_factcheck.md
-dist/BG-XXX_SLUG_vN.md
-```
+不设上限，按材料写足。著名人物一般 6000–9000 字，一般人物 4000–6000 字。字数是写足以后的自然结果，不是目标：不要为了控制字数删内容，也不要重复凑字。写不到这个长度，通常是材料不够，回第 1 步补时代背景、同事和学生、争论、后续发展、晚年。
 
-The visible title may retain `生物学名人系列`, but it must not show an internal ID. Work drafts may contain `## 数字与出处`; exports must not. Mechanical checks do not establish factual correctness. Do not post to WeChat unless explicitly requested.
+## 标题格式
+
+生物学名人系列｜人物：一句平实的陈述，直接说他做成了什么，不设悬念。起法见 style.md「题目和小标题」。
+
+## 只读这几个文件
+
+本文件、`references/style.md`、`references/research.md`、`references/figures.md`、`templates/facts.md`。不需要加载其他 skill。

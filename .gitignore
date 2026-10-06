@@ -1,6 +1,8 @@
+research/
+_old-v1/
+work/
+audit/
+PLAN-v2.md
 __pycache__/
 *.pyc
 .DS_Store
-*.qc.json
-!examples/**/runs/S6-qc.json
-.venv/

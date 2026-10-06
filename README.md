@@ -1,75 +1,84 @@
 # famous-people
 
-Homemade Cursor skill. One person, one checkable question, one evidence-grounded biography.
+Homemade Cursor skill. One biologist, one scientific life, one Chinese WeChat longread.
 
-自制 Cursor 技能。一人、一个可核对的问题、一篇有证据边界的人物稿。
+自制 Cursor 技能。一位生物学家的科学人生，一篇中文公众号长文。
 
-Not biologists only. The Mendel case below is a worked example, not the scope.
+It checks the sources, finds existing figures, and writes the way a scientist writes for a magazine. It does not post unless you say so.
 
-不限于生物学家。下面的孟德尔成稿是工作案例，不是范围。
-
-It writes a Chinese WeChat-ready draft with research, claim boundaries, figure provenance, and mechanical checks kept in separate files. It does not post unless you say so.
-
-写出可供微信阅读的中文稿；研究、主张边界、图源和机械检查分文件保存。未明确要求时不发布。
-
-## Example / 案例
-
-**BG-001 Mendel v21** — [full case](examples/BG-001-mendel-v21/README.md)
-
-Question: why round and wrinkled pea seeds reappear as countable classes, not as a blend.
-
-问题：圆种子和皱种子为什么按可计数的类别再次出现，而不是融合成中间形态。
-
-![Mendel example opening](examples/BG-001-mendel-v21/preview.png)
-
-Files / 文件: [draft.md](examples/BG-001-mendel-v21/draft.md) · [dist.md](examples/BG-001-mendel-v21/dist.md) · [runs/](examples/BG-001-mendel-v21/runs/) · [figures/](examples/BG-001-mendel-v21/figures/)
+查证、找现成的图，按科学家给杂志写人物的方式成文。未明确要求时不发布。
 
 ## Install / 安装
 
 ```bash
 git clone https://github.com/Xuzhen-Li/famous-people.git
 mkdir -p ~/.cursor/skills
-ln -sfn "$(pwd)/famous-people" ~/.cursor/skills/famous-people
+ln -sfn "$(pwd)/famous-people" ~/.cursor/skills/famous-bio
 ```
 
-Needs Python 3.10+ and Cursor. Optional companion skills: `references/companion-skills.md`. None are required.
+Needs Python 3.10+. The slash command is `/famous-bio`. This skill is not auto-attached: read `SKILL.md` first, and do not load other skills.
 
-需要 Python 3.10+ 和 Cursor。可选配套技能见 `references/companion-skills.md`，都不是运行依赖。
+需要 Python 3.10+。命令是 `/famous-bio`。本技能不会自动挂上：先读 `SKILL.md`，不加载其他 skill。
 
 ## Use / 用法
 
-In the workspace where you want `drafts/`, `runs/`, `figures/`, `qc/`, and `dist/`:
+In the workspace where you want `work/<slug>/`:
 
-在需要写出 `drafts/`、`runs/`、`figures/`、`qc/`、`dist/` 的工作区里：
+在要写出 `work/<slug>/` 的工作区里：
 
 ```text
-/famous-people Write one biography of [person], centered on [one checkable question].
+/famous-bio 写下一篇：托马斯·亨特·摩尔根
 ```
 
-Then / 然后：
+Four steps / 四步：
 
-1. Read `SKILL.md` and the root references. / 先读 `SKILL.md` 和根目录参考。
-2. Build `runs/<ID>_vN/` (S1 evidence, S2 claim boundary). / 建立 `runs/<ID>_vN/`（S1 证据，S2 主张边界）。
-3. Draft Chinese from verified evidence, not from English wording. / 只从已核证据起草中文，不从英文措辞翻译。
-4. Run the gates, export a reader-clean file to `dist/`. / 跑检查门，导出读者稿到 `dist/`。
+1. Research → `work/<slug>/facts.md`（`templates/facts.md`，`references/research.md`）.
+2. Draft and figures → `work/<slug>/draft.md`，图放 `work/<slug>/figures/`，登记 `figures.md`（`references/style.md`，`references/figures.md`）.
+3. Read aloud, write `revise.md` against the questions at the end of `references/style.md`, then `article.md`.
+4. Check: `python3 scripts/check_article.py work/<slug>/article.md`. Fix every ERROR. Read each WARN and decide.
+
+查证、写和配图、按改稿问题自改、跑检查。有 ERROR 就改；WARN 读一下再判断。
+
+Famous lives usually land at 6000–9000 Chinese characters, others at 4000–6000. That length is what you get after the seven parts are actually told: the era, the person, one or two core pieces of work, the lab, how the work was received, what later research did with it up to the present decade, and the late life. It is not a target to pad or to cut toward.
+
+著名人物一般 6000–9000 字，一般人物 4000–6000 字。字数是七样都讲开以后的结果：时代、本人、一两件核心工作、实验室、当时怎样被接受、后人做到今天的进展、晚年。不是凑字或砍字的目标。
+
+Use existing plates and photographs. Do not draw diagrams for the article.
+
+用现成的图版和照片。不为文章自己画图。
+
+## File map / 文件
+
+| Path | Role |
+|------|------|
+| `SKILL.md` | Agent entry: what the piece is, and the four steps |
+| `references/style.md` | How the prose should read, and the revision questions |
+| `references/research.md` | Where to look, and how deep |
+| `references/figures.md` | Where to find figures, licenses, captions |
+| `templates/facts.md` | Fact sheet |
+| `scripts/check_article.py` | Mechanical check |
+| `scripts/test_check_article.py` | Tests for the checker |
+
+`work/` holds one article's notes and draft. It is gitignored and is not part of this package. So are private exemplars and the previous rebuild notes.
+
+`work/` 是一篇的笔记和成稿，已忽略，不属于本包。私有范文和上一轮重建笔记同样不发布。
+
+## Checker / 检查
+
+From this directory / 在本目录：
 
 ```bash
-python3 ~/.cursor/skills/famous-people/scripts/qc_gate.py \
-  --profile wechat --file drafts/PERSON_vN.md
-python3 ~/.cursor/skills/famous-people/scripts/verify_dois.py \
-  --file drafts/PERSON_vN.md --out runs/PERSON_vN/S7-verify-log.txt
-python3 ~/.cursor/skills/famous-people/scripts/export_ship.py \
-  --in drafts/PERSON_vN.md --out dist/PERSON_vN.md
-python3 ~/.cursor/skills/famous-people/scripts/publish_lint.py \
-  --file dist/PERSON_vN.md
+python3 scripts/check_article.py work/<slug>/article.md
+python3 scripts/check_article.py work/<slug>/article.md --json
+python3 scripts/test_check_article.py
 ```
 
-Full steps: [USAGE.md](USAGE.md).
+Exit 0 means no ERROR. WARN is a reading prompt, not a failure. The checker does not decide whether a fact is true.
 
-完整步骤见 [USAGE.md](USAGE.md)。
+退出码 0 表示没有 ERROR。WARN 是给写手看的提示，不是失败。检查器不判断事实对不对。
 
 ## License / 许可
 
-MIT for code and docs. Example images keep the licenses in that example's `figures/SOURCES.md`.
+MIT for this skill's text and code. Each article's figure licenses stay in that article's `figures.md`.
 
-代码和文档 MIT。案例图片的许可写在该案例的 `figures/SOURCES.md`。
+本技能的文字和代码为 MIT。每篇文章的图许可写在该篇的 `figures.md`。
