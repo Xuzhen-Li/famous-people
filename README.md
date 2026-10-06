@@ -8,6 +8,16 @@ It checks the sources, finds existing figures, and writes the way a scientist wr
 
 查证、找现成的图，按科学家给杂志写人物的方式成文。未明确要求时不发布。
 
+## Example / 案例
+
+**Morgan** — [full article](examples/morgan/README.md)
+
+托马斯·亨特·摩尔根：果蝇的白眼改变了他对遗传学的看法。九张现成的图，后续写到 2024 年的果蝇全脑。
+
+![2005年的雄性黑腹果蝇](examples/morgan/figures/drosophila-melanogaster-2005.jpg)
+
+*安德烈·卡瓦特摄，Wikimedia Commons，CC BY-SA 2.5。*
+
 ## Install / 安装
 
 ```bash
@@ -58,6 +68,7 @@ Use existing plates and photographs. Do not draw diagrams for the article.
 | `templates/facts.md` | Fact sheet |
 | `scripts/check_article.py` | Mechanical check |
 | `scripts/test_check_article.py` | Tests for the checker |
+| `examples/morgan/` | One finished article and its figures |
 
 `work/` holds one article's notes and draft. It is gitignored and is not part of this package. So are private exemplars and the previous rebuild notes.
 
@@ -79,6 +90,6 @@ Exit 0 means no ERROR. WARN is a reading prompt, not a failure. The checker does
 
 ## License / 许可
 
-MIT for this skill's text and code. Each article's figure licenses stay in that article's `figures.md`.
+MIT for this skill's text and code, including the example article. The example images keep the licenses in `examples/morgan/figures/SOURCES.md`.
 
-本技能的文字和代码为 MIT。每篇文章的图许可写在该篇的 `figures.md`。
+本技能的文字和代码为 MIT，案例正文也一样。案例图片的许可写在 `examples/morgan/figures/SOURCES.md`。
