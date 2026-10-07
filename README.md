@@ -10,6 +10,12 @@ It checks the sources, finds existing figures, and writes the way a scientist wr
 
 ## Example / 案例
 
+<p align="center">
+  <a href="examples/morgan/article.md">
+    <img src="assets/read-demo-full.png" alt="阅读 demo 全文" width="420">
+  </a>
+</p>
+
 **Morgan** — [full article](examples/morgan/README.md)
 
 托马斯·亨特·摩尔根：果蝇的白眼改变了他对遗传学的看法。九张现成的图，后续写到 2024 年的果蝇全脑。
