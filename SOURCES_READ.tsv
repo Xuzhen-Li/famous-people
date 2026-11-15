@@ -1,0 +1,24 @@
+url	what_was_read	date_read	used_for
+https://doudnalab.org/people/	PI biography, current members, alumni tables (72 former postdocs, 51 former graduate students with years and positions)	2026-11-15	example brief §1, §4
+https://doudnalab.org/conflict-of-interest/	disclosure text: patents, cofounder list, advisory roles	2026-11-15	example brief §6
+https://www.nobelprize.org/prizes/chemistry/2020/press-release/	press release: laureates and citation	2026-11-15	example brief §1
+https://api.openalex.org/authors/orcid:0000-0001-9161-999X	author record JSON: works_count 707, cited_by_count 121700, h_index 151, counts_by_year	2026-11-15	example brief §2, data appendix
+https://api.openalex.org/works?filter=author.id:A5067184382	works lists sorted by citations and by date (script output)	2026-11-15	data appendix
+https://api.reporter.nih.gov/v2/projects/search	POST search by PI name Doudna, Jennifer: 84 rows (script output)	2026-11-15	example brief §3, data appendix
+https://api.crossref.org/works/10.1126/science.aab1028	Crossref record: title, 18 authors incl. Doudna, Science 2015	2026-11-15	example brief §5
+https://www.cafc.uscourts.gov/opinions-orders/22-1653.OPINION.5-12-2025_2512679.pdf	full opinion text: decided May 12, 2025; affirmed in part, vacated in part, remanded	2026-11-15	example brief §6
+https://ipwatchdog.com/2026/03/27/ptab-upholds-priority-win-for-broad-institute-in-crispr-patent-case/	article: PTAB on remand reaffirmed Broad priority	2026-11-15	example brief §6
+https://www.ted.com/talks/jennifer_doudna_how_crispr_lets_us_edit_our_dna	talk page title	2026-11-15	example brief §5
+https://www.ibiology.org/genetics-and-gene-regulation/crispr-cas9/	lecture page and transcript opening	2026-11-15	example brief §5
+https://docs.openalex.org/api-entities/authors	author object docs: counts_by_year, summary_stats	2026-11-15	background_data.py
+https://resources.research.gov/common/webapi/awardapisearch-v1.htm	NSF Award API reference	2026-11-15	references/background.md
+https://cordis.europa.eu/	landing page	2026-11-15	references/background.md
+https://gtr.ukri.org/	landing page	2026-11-15	references/background.md
+https://kd.nsfc.cn/	page title only (JS app)	2026-11-15	references/background.md
+https://academictree.org/	landing page	2026-11-15	references/background.md
+https://retractionwatch.com/retraction-watch-database-user-guide/	database user guide	2026-11-15	references/background.md
+https://pubpeer.com/	page title only	2026-11-15	references/background.md
+https://muchong.com/	forum front page (GBK text)	2026-11-15	references/background.md
+https://www.zhihu.com/	NOT READ: request blocked	2026-11-15	marked [待确认]
+https://old.reddit.com/r/PhD/	NOT READ: blocked	2026-11-15	marked [待确认]
+https://www.1point3acres.com/bbs/	NOT READ: blocked	2026-11-15	marked [待确认]

@@ -94,7 +94,7 @@ def render(author, top_cited, recent, coauthors, venues, grants, today):
     L.append(f"# Data appendix: {author['display_name']}")
     L.append("")
     L.append(f"Retrieved {today} from OpenAlex ({author['id']}) and NIH RePORTER. "
-             "Counts come from those databases and differ from Google Scholar or Web of Science.")
+             "Counts come from those two databases; other databases give different numbers.")
     L.append("")
     s = author.get("summary_stats") or {}
     L.append("## Output")
@@ -108,7 +108,7 @@ def render(author, top_cited, recent, coauthors, venues, grants, today):
     if insts:
         L.append(f"- Last known institutions (OpenAlex): {'; '.join(insts)}")
     L.append("")
-    L.append("OpenAlex fills yearly citation counts only for about the last decade; earlier rows show 0.")
+    L.append("A yearly citation count of 0 in early years can be missing data rather than zero citations; check before using it.")
     L.append("")
     L.append("| Year | Works | Citations received |")
     L.append("| --- | --- | --- |")

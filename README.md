@@ -107,6 +107,7 @@ Use existing plates and photographs. Do not draw diagrams for the article.
 | `scripts/check_brief.py` | Mode 2: private-term and missing-source check |
 | `scripts/test_check_brief.py` | Tests for the two mode 2 scripts |
 | `examples/doudna/` | Mode 2 example brief and data appendix |
+| `SOURCES_READ.tsv` | Pages and API records read for mode 2 and the example, with dates |
 
 `work/` holds one article's notes and draft. It is gitignored and is not part of this package. So are private exemplars and the previous rebuild notes.
 
