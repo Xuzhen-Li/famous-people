@@ -1,9 +1,17 @@
 ---
 name: famous-bio
-description: 写「生物学名人系列」公众号长文：一位生物学家的科学人生和一两件核心工作，查证、配现成的图，按真人科普杂志的写法成文。Triggers: 写下一篇名人系列 / 生物学名人系列 / /famous-bio.
+description: 两种模式。模式一：写「生物学名人系列」公众号长文，一位生物学家的科学人生和一两件核心工作，查证、配现成的图。模式二：认识一位导师或合作者前，用公开的职业信息（论文、经费、学生去向、讲话、新闻、论坛评价）写一份背景调查，不查住址、家庭、私生活和健康。Triggers: 写下一篇名人系列 / 生物学名人系列 / /famous-bio / 背景调查 / 了解一下这位导师 / /people-check.
 ---
 
-# 生物学名人系列
+# 生物学名人系列 / 背景调查
+
+## 先选模式
+
+- 用户要写人物文章、传记、研究史：模式一，往下读本文件。
+- 用户要了解一位潜在导师、合作者、评审对象的情况：模式二，只读 `references/background.md` 和 `templates/brief.md`，按那里的步骤做，本文件下面的内容不适用。
+- 模式二只查公开的职业信息。住址、家庭、私生活、健康一律不查不写。用户要求这些时，说明这个技能不做，并继续做职业部分。
+
+# 模式一：生物学名人系列
 
 ## 这是什么
 
@@ -30,4 +38,6 @@ description: 写「生物学名人系列」公众号长文：一位生物学家�
 
 ## 只读这几个文件
 
-本文件、`references/style.md`、`references/research.md`、`references/figures.md`、`templates/facts.md`。不需要加载其他 skill。
+模式一：本文件、`references/style.md`、`references/research.md`、`references/figures.md`、`templates/facts.md`。不需要加载其他 skill。
+
+模式二：本文件开头「先选模式」、`references/background.md`、`templates/brief.md`，以及 `scripts/background_data.py` 和 `scripts/check_brief.py`。

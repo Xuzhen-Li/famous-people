@@ -1,8 +1,14 @@
 # famous-people
 
-Homemade Cursor skill. One biologist, one scientific life, one Chinese WeChat longread.
+Homemade Cursor skill with two modes.
 
-自制 Cursor 技能。一位生物学家的科学人生，一篇中文公众号长文。
+1. Biography: one biologist's scientific life as a Chinese WeChat longread.
+2. Background check: a short, sourced brief on a researcher you may work with (a possible advisor or collaborator), built from public professional information only.
+
+自制 Cursor 技能，两种模式：
+
+1. 人物传记：一位生物学家的科学人生和研究史，写成一篇中文公众号长文。
+2. 背景调查：选导师、找合作者之前，用公开的职业信息把一个人的情况查清楚，写成一份带出处的简报。
 
 It checks the sources, finds existing figures, and writes the way a scientist writes for a magazine. It does not post unless you say so.
 
@@ -23,6 +29,26 @@ It checks the sources, finds existing figures, and writes the way a scientist wr
 ![2005年的雄性黑腹果蝇](examples/morgan/figures/drosophila-melanogaster-2005.jpg)
 
 *安德烈·卡瓦特摄，Wikimedia Commons，CC BY-SA 2.5。*
+
+## Mode 2: background check / 模式二：背景调查
+
+It looks past the official homepage: papers and how output changed over time, grants, where former students and postdocs went, public talks, news and disputes, conflict-of-interest statements, and forum threads about the lab. It does not look up home address, family, private life or health, and it does not piece scattered details together to locate a person.
+
+官方主页只是起点。它会查论文和产出变化、经费、前学生和博士后去向、公开讲话、新闻和争议、利益冲突声明，以及论坛上关于这个组的讨论。不查住址、家庭、私生活和健康，也不把零散信息拼起来定位一个人。
+
+```text
+/people-check 了解一下 Jennifer Doudna，我想申请她组的博士后
+```
+
+```bash
+python3 scripts/background_data.py --orcid 0000-0001-9161-999X --nih "Doudna,Jennifer" --out work/doudna/data.md
+python3 scripts/check_brief.py work/doudna/brief.md
+python3 scripts/test_check_brief.py
+```
+
+`background_data.py` pulls works, citations, coauthors and venues from OpenAlex and NIH grants from NIH RePORTER, both public APIs with no key. `check_brief.py` flags private-information words and fact lines without a source.
+
+Example: [examples/doudna/brief.md](examples/doudna/brief.md), with its data appendix [examples/doudna/data_2026-11-15.md](examples/doudna/data_2026-11-15.md). Rules: [references/background.md](references/background.md). Template: [templates/brief.md](templates/brief.md).
 
 ## Install / 安装
 
@@ -75,6 +101,13 @@ Use existing plates and photographs. Do not draw diagrams for the article.
 | `scripts/check_article.py` | Mechanical check |
 | `scripts/test_check_article.py` | Tests for the checker |
 | `examples/morgan/` | One finished article and its figures |
+| `references/background.md` | Mode 2: what to look up, where, and what is off limits |
+| `templates/brief.md` | Mode 2: brief template |
+| `scripts/background_data.py` | Mode 2: OpenAlex and NIH RePORTER data appendix |
+| `scripts/check_brief.py` | Mode 2: private-term and missing-source check |
+| `scripts/test_check_brief.py` | Tests for the two mode 2 scripts |
+| `examples/doudna/` | Mode 2 example brief and data appendix |
+| `SOURCES_READ.tsv` | Pages and API records read for mode 2 and the example, with dates |
 
 `work/` holds one article's notes and draft. It is gitignored and is not part of this package. So are private exemplars and the previous rebuild notes.
 
