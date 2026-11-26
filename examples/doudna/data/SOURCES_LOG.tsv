@@ -1,0 +1,18 @@
+tag	address	what the sha256 is of	sha256	bytes	read on (CST)
+S4	https://doudnalab.org/people/	page as first read	e407ce2557370107393ec2130866a3fa335d2572d5df33ab315b335d7504981d	175074	2026-11-26 13:59
+S4	https://doudnalab.org/people/	page as read for the counts in data/lab_people.md	e407ce2557370107393ec2130866a3fa335d2572d5df33ab315b335d7504981d	175074	2026-11-26 14:11
+S5	https://doudnalab.org/	page as first read	fe4603f2aa4ddc675695d2a49684675b80f10aacf58e313f59f8043c776cf33f	53794	2026-11-26 13:59
+S5	https://doudnalab.org/	page as read for data/lab_home.md and data/social_links_lab_home.md	fe4603f2aa4ddc675695d2a49684675b80f10aacf58e313f59f8043c776cf33f	53794	2026-11-26 14:11
+S6	https://doudnalab.org/contact/	page	6fe1a63a52dc53da3a38c8bcec8b3dde6aabf3947cc5e5b97ab06d0ec37a242f	47116	2026-11-26 14:00
+S7	https://www.nobelprize.org/prizes/chemistry/2020/doudna/biographical/	page	e2396cb88e2515f9df45cd51e5b97f5e790ffc58ebf85b9562e143f1f19edb4d	229689	2026-11-26 13:59
+S8	https://www.nobelprize.org/prizes/chemistry/2020/doudna/facts/	page	178a2db7f060b61d9cbce47dd8c428c51cc66ae55ee94cc421fa7120a3439796	190768	2026-11-26 13:59
+S9	https://innovativegenomics.org/people/jennifer-doudna/	page	519b7a1558de957a0c33e7de06aa003002872e49a998ebdd39af789813c82cab	322364	2026-11-26 13:59
+S12	https://sites.psu.edu/hgsac/2016/02/04/recap-on-lunch-with-jennifer-doudna/	page	a5b1679393445b48f9151db1e5cd4d0d5e1180752a91989c8bddb1479c22cbbb	109184	2026-11-26 14:01
+S13	https://www.unswcentreforideas.com/article/jennifer-doudna-my-life-science	page	94fa03b60935c65aa6fcdd808b8e16eadcc1363deb1d5facd94e3d8ab13207ca	111719	2026-11-26 14:01
+S15	https://pubpeer.com/search?q=10.1126%2Fscience.1225829	page (a security check)	43c5a2818870f2b65f8cb5c7adba9b9857365f803099c34036acd900ad7105d2	42477	2026-11-26 13:59
+S16	https://cen.acs.org/biological-chemistry/gene-editing/Jennifer-Doudna-journey-from-student-to-scientist-and-mentor/104/web/2026/02	page	f724406802eea9f61c9ef2f7eb5db781d8488acb7db57f494500a717baf3e264	176828	2026-11-26 14:27
+S17	https://retractionwatch.com/?s=Jennifer+Doudna	search result page	16b3d799794804b11d6e14f74b9a9d39fdc426021d3b3ff24d606f1a6a9fdeba	66321	2026-11-26 14:27
+S18	https://www.cafc.uscourts.gov/opinions-orders/22-1653.OPINION.5-12-2025_2512679.pdf	pdf	3d52458d2c81fe30f9914c996df27c6f3f03390af33e550c5a3d34ec5c5814a3	239390	2026-11-26 14:27
+S19	https://www.nature.com/articles/s41587-025-02717-6	page	d13e19d29a38a5ced31dac2153885f10ea756cc8400621d4192f6e69cbd5acc9	206713	2026-11-26 14:27
+S1-S3, S14	OpenAlex, ORCID and Mastodon replies	see data/openalex/FETCHED.tsv, data/orcid.md and data/mastodon.md, which carry their own sha256			2026-11-26
+S10, S11	NIH RePORTER and Crossref replies	the sha256 of each reply was not kept; rerun the scripts to read them again			2026-11-26
